@@ -1,0 +1,142 @@
+<!-- Garek Dorwin, Created and modified: 15 April 2018, http://chelan.highline.edu/~gdorwin26/116/assignments/a2/a2.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Student Survey</title>
+    <meta name="description" content="Assignment: Student Survey" />
+    <meta name="author" content="Garek Dorwin" />
+
+    <link rel="icon" type="image/png" href="../../images/favicon-16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="../../images/favicon-32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="../../images/favicon-64.png" sizes="64x64" />
+    <link href="https://fonts.googleapis.com/css?family=Unica+One%7CVollkorn" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../css/a2-form.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Student Survey</h1>
+    </header>
+    <form id="survey" action="submit-survey.php" method="post">
+        <section>
+          <h2>About the survey</h2>
+          <p>
+            This survey will help Highline to gather vital information necessary
+            to improving student safety and learning on campus.
+
+            Please take a few moments to fill out the following questions to the
+            best of your ability. Thank you!
+          </p>
+        </section>
+        <section>
+          <h2>Student Details</h2>
+          <label for="major">What is your major?</label>
+          <select name="major" id="major" required>
+            <option disabled selected value>-- Select a Major --</option>
+            <option value="accounting">Accounting</option>
+            <option value="administrative-management">Administrative Management</option>
+            <option value="animation">Animation</option>
+            <option value="biology">Biology</option>
+            <option value="business">Business</option>
+            <option value="computer-science">Computer Science</option>
+            <option value="criminal-justice">Criminal Justice</option>
+            <option value="e-commerce">E-Commerce</option>
+            <option value="graphic-design">Graphic Design</option>
+            <option value="information-systems">Information Systems</option>
+            <option value="mathematics">Mathematics</option>
+            <option value="nursing">Nursing</option>
+            <option value="physics">Physics</option>
+            <option value="retail-management">Retail Management</option>
+            <option value="web-development">Web Development</option>
+            <option value="other">Other</option>
+          </select>
+          <label class="indented" for="major-other">If other, please specify:</label>
+          <input class="indented" name="major-other" id="major-other" type="text" />
+          <br />
+          <label for="yos">(Optional) What is your year of study?</label>
+          <input id="yos" type="number" name="yos" min="1" max="4" placeholder="-- year of study --" />
+          <br />
+          <fieldset>
+            <legend>What is your GPA?</legend>
+            <input type="radio" name="gpa" id="gpa-4" value="3.6-4.0" required/>
+            <label for="gpa-4">3.6-4.0</label>
+            <input type="radio" name="gpa" id="gpa-3" value="3.0-3.5" />
+            <label for="gpa-3">3.0-3.5</label>
+            <input type="radio" name="gpa" id="gpa-2" value="2.5-2.9" />
+            <label for="gpa-2">2.5-2.9</label>
+            <input type="radio" name="gpa" id="gpa-1" value="2.0-2.4" />
+            <label for="gpa-1">2.0-2.4</label>
+            <input type="radio" name="gpa" id="gpa-0" value="<2.0" />
+            <label for="gpa-0">&lt;2.0</label>
+          </fieldset>
+        </section>
+        <section>
+          <h2>Campus Safety</h2>
+          <fieldset>
+            <legend>Do you feel that the Highline campus is safe?</legend>
+            <input type="radio" name="safety" id="safety-4" value="always" required />
+            <label for="safety-4">Always</label>
+            <input type="radio" name="safety" id="safety-3" value="usually" />
+            <label for="safety-3">Usually</label>
+            <input type="radio" name="safety" id="safety-2" value="sometimes" />
+            <label for="safety-2">Sometimes</label>
+            <input type="radio" name="safety" id="safety-1" value="rarely" />
+            <label for="safety-1">Rarely</label>
+            <input type="radio" name="safety" id="safety-0" value="never" />
+            <label for="safety-0">Never</label>
+          </fieldset>
+          <label for="safety-feedback">(Optional) Additional Feedback</label>
+          <textarea name="safety-feedback" id="safety-feedback"></textarea>
+        </section>
+        <section>
+          <h2>Classes & Instructors</h2>
+          <fieldset>
+            <legend>Do you find that your instructors provide a friendly learning environment?</legend>
+            <input type="radio" name="friendly" id="friendly-4" value="always" required />
+            <label for="friendly-4">Always</label>
+            <input type="radio" name="friendly" id="friendly-3" value="usually" />
+            <label for="friendly-3">Usually</label>
+            <input type="radio" name="friendly" id="friendly-2" value="sometimes" />
+            <label for="friendly-2">Sometimes</label>
+            <input type="radio" name="friendly" id="friendly-1" value="rarely" />
+            <label for="friendly-1">Rarely</label>
+            <input type="radio" name="friendly" id="friendly-0" value="never" />
+            <label for="friendly-0">Never</label>
+          </fieldset>
+          <label for="friendly-feedback">(Optional) Additional Feedback</label>
+          <textarea name="friendly-feedback" id="friendly-feedback" cols="100" rows="5"></textarea>
+        </section>
+        <section>
+          <h2>Transportation</h2>
+          <fieldset>
+            <legend>(Optional) What are your modes of transportation to/from campus? (Select all that apply)</legend>
+            <input id="mot-0" name="mot[]" type="checkbox" value="car (alone)" />
+            <label for="mot-0">Car (alone)</label>
+            <input id="mot-1" name="mot[]" type="checkbox" value="car (carpool)" />
+            <label for="mot-1">Car (carpool)</label>
+            <input id="mot-2" name="mot[]" type="checkbox" value="public-transportation" />
+            <label for="mot-2">Public transportation</label>
+            <input id="mot-3" name="mot[]" type="checkbox" value="bike" />
+            <label for="mot-3">Bike</label>
+            <input id="mot-4" name="mot[]" type="checkbox" value="walking" />
+            <label for="mot-4">Walking</label>
+          </fieldset>
+        </section>
+        <button form="survey" name="submit" type="submit" value="Submit">Submit</button>
+    </form>
+    <footer>
+      <a href="https://github.com/gd26/CSCI-116">
+        <!-- Copied SVG from Octicon, see https://octicons.github.com/icon/code/ -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16">
+          <path fill-rule="evenodd" d="M9.5 3L8 4.5 11.5 8 8 11.5 9.5 13 14 8 9.5
+            3zm-5 0L0 8l4.5 5L6 11.5 2.5 8 6 4.5 4.5 3z"/>
+        </svg>
+        View Source
+      </a>
+      <a href="https://validator.w3.org/nu/?showsource=yes&showoutline=yes&doc=https%3A%2F%2Fchelan.highline.edu%2F~gdorwin26%2F116%2Fassignments%2Fa2%2Fa2.html">Validate Page</a>
+    </footer>
+  </body>
+</html>
